@@ -43,7 +43,6 @@ func ReplaceFileDescriptor(replacer *FileDescriptorReplacer) *FileDescriptor {
 	var shadowDesc *FileDescriptor
 	// if filepath is the same as local，don't need to replace,because other can ref
 	if remoteDesc.Filepath == currentFilepath {
-		remoteDesc.setGoPkgPathRef(currentGoPkgPath)
 		return remoteDesc
 	} else {
 		// if filepath is not the same,then just replace the file descriptor's filepath is ok. since sub descriptor's filepath will lead to the real and same fd from remote
